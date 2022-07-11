@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <script src="./draw/index.js"></script>
+    <script src="./logic/index.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        height: 100vh;
+      }
+      #container {
+        border: 1px solid gray;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="container" width="500px" height="550px">
+      您的浏览器不支持Cnavas,请升级您的浏览器
+    </canvas>
+
+    <script>
+      window.onload = function () {
+        const canvas = document.getElementById("container");
+
+        if (!canvas.getContext) {
+          // 需要在 function内return,否则会报错
+          // 参考链接: https://blog.csdn.net/qq_16339527/article/details/52004269
+          return;
+        }
+
+        const ctx = canvas.getContext("2d");
+        draw(ctx);
+      };
+    </script>
+  </body>
+</html>
