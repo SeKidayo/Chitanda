@@ -3,6 +3,344 @@
  */
 
 /**
+ * ****************************************
+ * 数据集
+ * ****************************************
+ */
+// 棋盘数据
+const CHESSBOARD_DATA = {};
+
+// 棋子数据
+const CHESSPIECES_DATA = [
+  {
+    code: "jiang",
+    name: "将",
+    camp: "black",
+    position: {
+      x: 4,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "shi1",
+    name: "士",
+    camp: "black",
+    position: {
+      x: 3,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "shi2",
+    name: "士",
+    camp: "black",
+    position: {
+      x: 5,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "xiang1",
+    name: "象",
+    camp: "black",
+    position: {
+      x: 2,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "xiang2",
+    name: "象",
+    camp: "black",
+    position: {
+      x: 6,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ma1",
+    name: "马",
+    camp: "black",
+    position: {
+      x: 1,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ma2",
+    name: "马",
+    camp: "black",
+    position: {
+      x: 7,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ju1",
+    name: "車",
+    camp: "black",
+    position: {
+      x: 0,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ju2",
+    name: "車",
+    camp: "black",
+    position: {
+      x: 8,
+      y: 0,
+    },
+    isAlive: true,
+  },
+  {
+    code: "pao1",
+    name: "砲",
+    camp: "black",
+    position: {
+      x: 1,
+      y: 2,
+    },
+    isAlive: true,
+  },
+  {
+    code: "pao2",
+    name: "砲",
+    camp: "black",
+    position: {
+      x: 7,
+      y: 2,
+    },
+    isAlive: true,
+  },
+  {
+    code: "zu1",
+    name: "卒",
+    camp: "black",
+    position: {
+      x: 0,
+      y: 3,
+    },
+    isAlive: true,
+  },
+  {
+    code: "zu2",
+    name: "卒",
+    camp: "black",
+    position: {
+      x: 2,
+      y: 3,
+    },
+    isAlive: true,
+  },
+  {
+    code: "zu3",
+    name: "卒",
+    camp: "black",
+    position: {
+      x: 4,
+      y: 3,
+    },
+    isAlive: true,
+  },
+  {
+    code: "zu4",
+    name: "卒",
+    camp: "black",
+    position: {
+      x: 6,
+      y: 3,
+    },
+    isAlive: true,
+  },
+  {
+    code: "zu5",
+    name: "卒",
+    camp: "black",
+    position: {
+      x: 8,
+      y: 3,
+    },
+    isAlive: true,
+  },
+  {
+    code: "shuai",
+    name: "帅",
+    camp: "red",
+    position: {
+      x: 4,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "shi1",
+    name: "仕",
+    camp: "red",
+    position: {
+      x: 3,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "shi2",
+    name: "仕",
+    camp: "red",
+    position: {
+      x: 5,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "xiang1",
+    name: "相",
+    camp: "red",
+    position: {
+      x: 2,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "xiang2",
+    name: "相",
+    camp: "red",
+    position: {
+      x: 6,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ma1",
+    name: "马",
+    camp: "red",
+    position: {
+      x: 1,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ma2",
+    name: "马",
+    camp: "red",
+    position: {
+      x: 7,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ju1",
+    name: "車",
+    camp: "red",
+    position: {
+      x: 0,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "ju2",
+    name: "車",
+    camp: "red",
+    position: {
+      x: 8,
+      y: 9,
+    },
+    isAlive: true,
+  },
+  {
+    code: "pao1",
+    name: "炮",
+    camp: "red",
+    position: {
+      x: 1,
+      y: 7,
+    },
+    isAlive: true,
+  },
+  {
+    code: "pao2",
+    name: "炮",
+    camp: "red",
+    position: {
+      x: 7,
+      y: 7,
+    },
+    isAlive: true,
+  },
+  {
+    code: "bing1",
+    name: "兵",
+    camp: "red",
+    position: {
+      x: 0,
+      y: 6,
+    },
+    isAlive: true,
+  },
+  {
+    code: "bing2",
+    name: "兵",
+    camp: "red",
+    position: {
+      x: 2,
+      y: 6,
+    },
+    isAlive: true,
+  },
+  {
+    code: "bing3",
+    name: "兵",
+    camp: "red",
+    position: {
+      x: 4,
+      y: 6,
+    },
+    isAlive: true,
+  },
+  {
+    code: "bing4",
+    name: "兵",
+    camp: "red",
+    position: {
+      x: 6,
+      y: 6,
+    },
+    isAlive: true,
+  },
+  {
+    code: "bing5",
+    name: "兵",
+    camp: "red",
+    position: {
+      x: 8,
+      y: 6,
+    },
+    isAlive: true,
+  },
+];
+
+/**
+ * ****************************************
+ * 绘图工具集
+ * ****************************************
+ */
+
+/**
  * 绘制连续线段
  * @param {CanvasRenderingContext2D} ctx 渲染上下文
  * @param {Record<string,any>[]} lineArray 线段关键点坐标数组
@@ -51,17 +389,29 @@ function utils_drawLine(
 
 /**
  * ****************************************
+ * 绘图集
  * ****************************************
  */
 
 /**
- * 绘制入口方法
+ * ! 绘制入口方法
  * @param {CanvasRenderingContext2D} ctx 渲染上下文
  */
 function draw(ctx) {
   console.log(ctx);
+
+  // 保存默认配置
+  ctx.save();
+
+  // 字体样式-全局配置
+  ctx.font = "24px KaiTi";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+
   // 1.绘制出棋盘
   draw_chessboard(ctx);
+  // 2.绘制棋子
+  draw_chesspieces(ctx, CHESSPIECES_DATA);
 }
 
 /**
@@ -102,9 +452,6 @@ function draw_chessboard(ctx) {
   // 3)河界
   ctx.clearRect(50, 250, 400, 50);
   // 绘制文本
-  ctx.font = "24px KaiTi";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
   ctx.fillText("楚 河", 150, 275);
   ctx.fillText("汉 界", 350, 275);
   // ? 汉界 二字反转
@@ -129,6 +476,36 @@ function draw_chessboard(ctx) {
   draw_crosspoint(ctx, { x: 250, y: 350 });
   draw_crosspoint(ctx, { x: 350, y: 350 });
   draw_crosspoint(ctx, { x: 450, y: 350 }, [false, true, true, false]);
+}
+
+/**
+ * 绘制棋子
+ * @param {CanvasRenderingContext2D} ctx 渲染上下文
+ * @param {Record<string, any>[]} allChesspiecesInfo 棋子信息
+ */
+function draw_chesspieces(ctx, allChesspiecesInfo) {
+  allChesspiecesInfo.forEach((item) => {
+    const { camp, name, position } = item;
+    const { x, y } = position;
+
+    // 背景圆
+    ctx.beginPath();
+    ctx.fillStyle = "#eed045";
+    ctx.arc(50 * x + 50, 50 * y + 50, 22, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 内层环
+    ctx.beginPath();
+    ctx.lineWidth = 0.4;
+    ctx.arc(50 * x + 50, 50 * y + 50, 15, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // 文本
+    ctx.beginPath();
+    ctx.fillStyle = camp;
+    ctx.font = "20px";
+    ctx.fillText(name, 50 * x + 50, 50 * y + 50);
+  });
 }
 
 /**
